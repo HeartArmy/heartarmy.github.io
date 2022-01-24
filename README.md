@@ -1,2 +1,6 @@
 # Source files for my portfolio website
-Made using standard HTML, JavaScript, and CSS
+
+Personal project made using HTML, JavaScript, and CSS.
+
+
+
