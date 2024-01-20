@@ -1,0 +1,104 @@
+
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+  }
+
+
+ body.dark-mode a {
+    color: #80c7ff; /* Light blue hyperlink color */
+  }
+
+  /* Section title styles */
+  body.dark-mode h2,
+  body.dark-mode h3,
+  body.dark-mode h4 {
+    color: #fff; /* Light gray text color for section titles */
+  }
+
+  body.dark-mode h2 {
+    color: #fff; /* Light gray text color for section titles */
+  }
+  
+  /* List styles */
+  body.dark-mode ul {
+    color: #fff; /* Light text color for lists */
+  }
+  
+  /* Footer styles */
+  body.dark-mode footer {
+    background-color: #333; /* Dark background color for footer */
+    color: #fff; /* Light text color for footer */
+  }
+  
+  body.dark-mode h2.template-title-example {
+    color: #fff; /* White text color for h2 with class template-title-example in dark mode */
+  }
+
+ body.dark-mode .navbar.navbar-fixed-top.navbar-default {
+    background-color: #333; /* Black background color for the navbar in dark mode */
+    color: #fff; /* White text color for the navbar in dark mode */
+  }  
+
+/* Visually hide the label text and Inject Light/Dark Mode Icon (based on checkbox value) */
+#toggle-darkmode {
+	display: none;
+}
+
+ #toggle-darkmode + label > span {
+	position: absolute;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	width: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+}
+
+#toggle-darkmode + label {
+  display: flex;
+  align-items: center; /* Vertical centering */
+  justify-content: center; /* Horizontal centering */
+  position: relative;
+}
+
+
+ #toggle-darkmode + label:after {
+	font-size: 4em;
+	content: "🌝";
+
+
+	cursor: pointer;
+}
+
+ #toggle-darkmode:checked + label:after {
+	content: "🌚";
+
+  
+}
+
+
+@media (min-width: 768px) { 
+  body.dark-mode b {
+    color: #fff; /* Light blue hyperlink color for larger screens ONLY so on mobile  this  css wont  run */
+  }
+}
+
+@media all and (min-width:0px) and (max-width: 768px) {
+  /* put your css styles in here That only  run on mobile*/
+  #toggle-darkmode:checked + label:after {
+    position: absolute; /* Positioning within the label */
+
+    
+}
+#toggle-darkmode + label:after {
+  position: absolute;
+}
+
+
+}
+
+
+

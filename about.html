@@ -15,9 +15,15 @@
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
   <link href="./assets/favicon.ico" rel="icon">
 
+  
+
+
+
   <title>About Me!</title>  
 
 <link href="./main.3f6952e4.css" rel="stylesheet"></head>
+<link id="dark-mode-style" href="./dark-mode.css" rel="stylesheet">
+
 
 <body class="">
 <div id="site-border-left"></div>
@@ -39,6 +45,59 @@
         <ul class="nav navbar-nav ">
           <li><a href="./index.html" title=""> <b>Home</b> </a></li>
           <li><a href="./about.html" title=""><b>About me</b></a></li>
+          <!-- <button onclick="toggleDarkMode()">Toggle Dark Mode</button>  Removed this simpler checkbox icon -->
+          <input type="checkbox" id="toggle-darkmode" onchange="toggleDarkMode()"/> 
+          <label for="toggle-darkmode"><span>Toggle Light/Dark Mode</span></label>
+
+
+ 
+
+
+<script>
+  function toggleDarkMode() {
+    const body = document.body;
+    body.classList.toggle("dark-mode");
+  }
+</script>
+
+<script>
+  function toggleDarkMode() {
+    const body = document.body;
+    body.classList.toggle("dark-mode");
+
+    // Save dark mode state to local storage
+    const isDarkMode = body.classList.contains("dark-mode");
+    localStorage.setItem("darkMode", isDarkMode);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+  const body = document.body;
+  const toggleDarkModeCheckbox = document.getElementById("toggle-darkmode");
+
+  // Check the dark-mode checkbox if the darkMode is true
+  const isDarkMode = localStorage.getItem("darkMode") === "true";
+  toggleDarkModeCheckbox.checked = isDarkMode;
+
+  // Set the initial color mode based on the checkbox state
+  setColorMode(toggleDarkModeCheckbox.checked ? 'dark' : 'light');
+
+  // Toggle dark mode when the checkbox state changes
+  toggleDarkModeCheckbox.addEventListener('change', function () {
+    setColorMode(this.checked ? 'dark' : 'light');
+  });
+
+  function setColorMode(mode) {
+    // Your existing logic for setting color mode
+    if (mode === 'dark') {
+      body.classList.add("dark-mode");
+      localStorage.setItem("darkMode", "true");
+    } else {
+      body.classList.remove("dark-mode");
+      localStorage.setItem("darkMode", "false");
+    }
+  }
+});
+</script>
          <!--<li><a href="./about.html" title="">03 : Relevant experiences </a></li>
           <li><a href="./contact.html" title="">04 : Internships </a></li>
          <li><a href="./components.html" title="">05 : Components</a></li
@@ -66,7 +125,7 @@
               <div class="row">
                 <div class="col-xs-12 col-md-30"> <!-- changed md from 6 to this-->
                   <div class="template-example">
-                  <h2 class="template-title-example">I am a final year student majoring in CS at NYU. I am interested in various CS domains, such as low level programming (compilers), backend dev, ML and scalability problems. I have experiences with medical imaging segementation & database systems. For a more personal biography please check out my <a href="https://github.com/HeartArmy" title="takes you to my github profile!">github!</a> Feel free to contact me at arham@nyu.edu or my <a href="https://www.linkedin.com/in/mohdarham/" title="takes you to my LinkedIn profile!">LinkedIn.</a> </h2> </div>
+                  <h2 class="template-title-example">I am a NYU graduate having majored in Computer Science with a minor in Math. I am interested in various CS domains, such as low level programming (compilers), backend dev, ML and scalability problems. I have experiences with medical imaging segementation & database systems. For a more personal biography please check out my <a href="https://github.com/HeartArmy" title="takes you to my github profile!">github!</a> Feel free to contact me at arham@nyu.edu or my <a href="https://www.linkedin.com/in/mohdarham/" title="takes you to my LinkedIn profile!">LinkedIn.</a> </h2> </div>
                   <h3>Relevant Experiences</h3>
                   <h3>myCarmunity Remote Internship, Germany</h3>
                   <h4>Backend Developer</h4>
@@ -221,6 +280,8 @@
      navActivePage();
   });
 </script>
+
+
 
 <!--google analytics-->
 <script>
